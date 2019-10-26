@@ -1,0 +1,125 @@
+
+.button {
+    display: inline-block;
+    padding: 1em;
+    background-color: #79BD9A;
+    text-decoration: none;
+    color: white;
+}
+
+
+/*codigo para el index*/
+#titulo{
+	font-family:sans-serif;
+	font-size: 80px;
+	text-align: center;
+	color:#FDFEFE;
+	text-transform: uppercase;
+}
+
+.fondo-index{
+  background-image: url('../img/flotilla6.jpg');
+  height: 100vh;
+}
+
+.texto{
+	position: absolute;
+	left:50%;
+	top:50%;
+	transform: translateX(-50%) translateY(-50%);
+}
+
+.bot{
+	position: absolute;
+	left:40%;
+	top:100%;
+	}
+
+.logo{
+	position: absolute;
+	
+	top:-70%;	
+}	
+/*codigo para el index*/
+
+
+/*codigo para el letrero y boton del login*/
+.textologin{
+	position: absolute;
+	left:50%;
+	top:50%;
+	transform: translateX(-50%) translateY(-50%);
+}
+
+#titulologin{
+	font-family:sans-serif;
+	font-size: 20px;
+	text-align: center;
+	color:#FDFEFE;
+	text-transform: uppercase;
+}
+
+.botlogin{
+	position: absolute;
+	left:40%;
+	top:100%;
+	height:40px;
+	width: 100px;
+	}
+/*codigo para el letrero y boton del login*/
+
+
+
+/*codigo para la pagina de administrador*/
+.fondo{
+  background-image: url('../img/flotilla2.jpg');
+  height: 100vh;
+}
+
+#titulo2{
+	font-family:sans-serif;
+	font-size: 50px;
+	text-align: center;
+	color:#FDFEFE;
+	text-transform: uppercase;
+}
+
+.bot1{
+	position: absolute;
+	left:60%;
+	top:100%;
+	}
+
+.bot2{
+	position: absolute;
+	left:18%;
+	top:100%;
+	}	
+/*codigo para la pagina de administrador*/	
+/*codigo para la pagina de usuario*/
+.bot3{
+	position: absolute;
+	left:18%;
+	top:100%;
+	}		
+/*codigo para la pagina de usuario*/	
+
+
+/*codigo para el menu navbar boton close*/
+.bot4{
+	position: absolute;
+	right:11%;	
+	}	
+/*codigo para el menu navbar boton close*/	
+
+.ir-arriba {
+	display:none;
+	padding:20px;
+	background:#024959;
+	font-size:20px;
+	color:#fff;
+	cursor:pointer;
+	position: fixed;
+	bottom:20px;
+	right:20px;
+}

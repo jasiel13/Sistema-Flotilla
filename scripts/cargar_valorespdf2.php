@@ -1,0 +1,42 @@
+<?php
+$con=mysqli_connect("localhost","root","","controldeflotilla") or die (mysqli_error());
+//el dato que enviamos a traves de ajax
+$valor=$_POST['valor'];
+//esta variable es para retornar los datos
+$jsondata = array();
+//la consulta que necesites para trer el codigo y el nombre del cliente
+$query="SELECT id_incidente,conductor,vehiculo,servicio,fecha_inicio,prioridad,incidente,descripcion,odometro from incidentes where id_incidente=$valor";
+$result=mysqli_query($con, $query) or die (mysqli_error());
+
+
+$resultados= mysqli_fetch_array($result);
+
+$id_incidente=$resultados['id_incidente']; 
+$conductor=$resultados['conductor'];
+$vehiculo=$resultados['vehiculo'];
+$servicio=$resultados['servicio'];
+$fecha_inicio=$resultados['fecha_inicio'];
+$prioridad=$resultados['prioridad'];
+$incidente2=$resultados['incidente'];
+$descripcion=$resultados['descripcion'];
+$odometro=$resultados['odometro'];
+ 
+//agregamos nuestros datos al array para retornarlos
+$jsondata['id_incidente'] = $id_incidente;
+$jsondata['conductor'] = $conductor;
+$jsondata['vehiculo'] = $vehiculo;
+$jsondata['servicio'] = $servicio;
+$jsondata['fecha_inicio'] = $fecha_inicio;
+$jsondata['prioridad'] = $prioridad;
+$jsondata['incidente2'] = $incidente2;
+$jsondata['descripcion'] = $descripcion;
+$jsondata['odometro'] = $odometro;
+ 
+//este header es para el retorno correcto de datos con json
+ header('Content-type: application/json; charset=utf-8');
+ echo json_encode($jsondata); 
+ mysqli_close($con);
+
+?>
+
+
