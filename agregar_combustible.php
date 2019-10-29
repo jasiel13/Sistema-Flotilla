@@ -270,7 +270,7 @@ $con=mysqli_connect("localhost","root","","controldeflotilla") or die (mysqli_er
 <p id="ms12" style="display:none" class="error">El campo rendimiento real no puede estar vacío</p>      </div>
 
  <div class="form-group col-md-3">
-      <label for="">Rendimiento x Kilometraje</label>
+      <label for="">Rendimiento Nominal</label>
       <div class="input-group mb-3">
       <div class="input-group-prepend">
       <span class="input-group-text" id="basic-addon1">KM</span>
@@ -285,19 +285,30 @@ $con=mysqli_connect("localhost","root","","controldeflotilla") or die (mysqli_er
 
 <div class="form-row">
 
-      <div class="form-group col-md-4">
-      <label for="">Factor</label>
+      <div class="form-group col-md-3">
+      <label for="">Diferencia Absoluta</label>
       <div class="input-group mb-3">
       <div class="input-group-prepend">
-    <button class="input-group-text" id="enviarfactor" type="button" style="color:#20c997;">RR+RK</button> 
+    <button class="input-group-text" id="enviarfactor" type="button" style="color:#20c997;">RR-RN</button> 
     </div>
-      <input type="text" class="form-control numerico" name="factor" id="factor">
+      <input type="text" class="form-control numerico" name="factor" id="factor" placeholder="Factor">
     </div>
-<p id="ms14" style="display:none" class="error">El campo factor no puede estar vacío</p> 
-     </div>
- 
+<p id="ms14" style="display:none" class="error">El campo diferencia absoluta no puede estar vacío</p> 
+  </div>
 
- <div class="form-group col-md-4">
+
+<div class="form-group col-md-3">
+  <label for="">Porcentaje</label>
+  <div class="input-group mb-3">
+  <div class="input-group-prepend">
+  <button class="input-group-text" id="enviardif" type="button" style="color:#20c997;">%</button> 
+  </div>
+  <input type="text" class="form-control numerico" name="porcentaje" id="porcentaje">
+  </div>
+<p id="ms15" style="display:none" class="error">El campo porcentaje no puede estar vacío</p> 
+  </div> 
+
+ <div class="form-group col-md-3">
       <label for="">Empresa</label>
       <select name="empresa" id="empresa" class="form-control">
         <option value="">Seleccione...</option>
@@ -305,10 +316,10 @@ $con=mysqli_connect("localhost","root","","controldeflotilla") or die (mysqli_er
         <option value="sea">SEA</option>
         <option value="cta">CTA</option>      
       </select>
-      <p id="ms15" style="display:none" class="error">Seleccione una opción</p>
+      <p id="ms17" style="display:none" class="error">Seleccione una opción</p>
     </div>
 
-    <div class="form-group col-md-4 target">
+    <div class="form-group col-md-3 target">
       <label for="">Fecha de Registro</label>
       <?php 
       date_default_timezone_set('America/Mexico_City');        
@@ -596,15 +607,26 @@ if($("#km_inicial").val() == ""){
       $("#ms14").fadeOut();      
     }
 
-    if($("#empresa").val() == ""){
+    if($("#porcentaje").val() == ""){
         //alert("El campo Nombre no puede estar vacío.");
         $("#ms15").delay(100).fadeIn("slow");
-        $("#empresa").focus();// Esta función coloca el foco de escritura del usuario en el campo Nombre directamente.
+        $("#porcentaje").focus();// Esta función coloca el foco de escritura del usuario en el campo Nombre directamente.
         return false;
     }
     else
     {
       $("#ms15").fadeOut();      
+    }
+
+    if($("#empresa").val() == ""){
+        //alert("El campo Nombre no puede estar vacío.");
+        $("#ms17").delay(100).fadeIn("slow");
+        $("#empresa").focus();// Esta función coloca el foco de escritura del usuario en el campo Nombre directamente.
+        return false;
+    }
+    else
+    {
+      $("#ms17").fadeOut();      
     }
 
      return true; // Si todo está correcto
@@ -705,6 +727,7 @@ function mifuncion5(valor){
         $("#rendimiento_real").val(json.rendimiento_real);
         $("#rendimiento_kilometro").val(json.rendimiento_kilometro);
         $("#factor").val(json.factor);
+        $("#porcentaje").val(json.porcentaje);
       },
       // código a ejecutar si la petición falla;
         error : function(xhr, status) {
@@ -965,15 +988,26 @@ if($("#km_inicial").val() == ""){
       $("#ms14").fadeOut();      
     }
 
-    if($("#empresa").val() == ""){
+    if($("#porcentaje").val() == ""){
         //alert("El campo Nombre no puede estar vacío.");
         $("#ms15").delay(100).fadeIn("slow");
-        $("#empresa").focus();// Esta función coloca el foco de escritura del usuario en el campo Nombre directamente.
+        $("#porcentaje").focus();// Esta función coloca el foco de escritura del usuario en el campo Nombre directamente.
         return false;
     }
     else
     {
       $("#ms15").fadeOut();      
+    }
+
+    if($("#empresa").val() == ""){
+        //alert("El campo Nombre no puede estar vacío.");
+        $("#ms17").delay(100).fadeIn("slow");
+        $("#empresa").focus();// Esta función coloca el foco de escritura del usuario en el campo Nombre directamente.
+        return false;
+    }
+    else
+    {
+      $("#ms17").fadeOut();      
     }
      return true; // Si todo está correcto
 }
@@ -1089,6 +1123,22 @@ $(document).ready(function(){
     });
 });
 
+//funcion para el input porcentaje
+$(document).ready(function(){
+    $("#enviardif").click(function(){
+        var factor = $("#factor").val();
+        var rendimiento_kilometro = $("#rendimiento_kilometro").val();       
+
+        $.ajax({
+            type: "POST",
+            url: "scripts/suma_rendimientoporcentaje.php",
+            data: {factor:factor,rendimiento_kilometro:rendimiento_kilometro},
+            success: function(data){              
+                $('#porcentaje').val(data);
+            }
+        });
+    });
+});
 </script>
 </body>
 </html>

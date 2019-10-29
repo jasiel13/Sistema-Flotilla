@@ -56,6 +56,7 @@
 <th>Rendimiento Real</th>
 <th>Rendimiento Esperado</th>
 <th>Factor</th>
+<th>Porcentaje</th>
 <th>Eliminar</th>
 </tr>
 </thead>
@@ -84,7 +85,8 @@ $row[13]."||".
 $row[14]."||".
 $row[15]."||".
 $row[16]."||".
-$row[17];
+$row[17]."||".
+$row[18];
 
 $lleno=$row[6];
 if($lleno=="1"){
@@ -115,6 +117,7 @@ else
     <td class="text-center"><?php echo$row[15]?></td>
     <td class="text-center"><?php echo$row[16]?></td>
     <td class="text-center"><?php echo$row[17]?></td>
+    <td class="text-center"><?php echo$row[18]?></td>
 
     <td class="text-center">
       <button class="btn btn-danger fa fa-trash" onclick="delete1('<?php echo $row[0]?>')"></button>

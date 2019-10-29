@@ -99,7 +99,9 @@
            </a>
         <ul class="dropdown-menu">
         <li><a class="dropdown-item" href="notificaciones.php">Alertas Mtto Pendientes</a></li>
-        <li><a class="dropdown-item" href="alertas_incidentes.php">Alertas de Incidentes</a></li><li><a class="dropdown-item" href="alertas_mtto_ven.php">Alertas Vencimiento de Mtto</a></li>
+        <li><a class="dropdown-item" href="alertas_incidentes.php">Alertas de Incidentes</a></li>
+        <li><a class="dropdown-item" href="alertas_mtto_ven.php">Alertas Vencimiento de Mtto</a></li>
+        <li><a class="dropdown-item" href="alertas_porcentaje_km.php">Alertas por Factor</a></li>
         </ul>
           </li>
           <!--con este codigo se crea el submenu-->

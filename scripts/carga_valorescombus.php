@@ -5,7 +5,7 @@ $valor=$_POST['valor'];
 //esta variable es para retornar los datos
 $jsondata = array();
 //la consulta que necesites para trer el codigo y el nombre del cliente
-$query="SELECT vehiculo,fecha_carga,hora_carga,ticket,factura,tipo,costo_total,litros,costo_litro,empresa,km_inicial,km_final,rendimiento_real,rendimiento_kilometro,factor from carga_combustible where id_carga=$valor";
+$query="SELECT vehiculo,fecha_carga,hora_carga,ticket,factura,tipo,costo_total,litros,costo_litro,empresa,km_inicial,km_final,rendimiento_real,rendimiento_kilometro,factor,porcentaje from carga_combustible where id_carga=$valor";
 $result=mysqli_query($con, $query) or die (mysqli_error());
 
 $resultados= mysqli_fetch_array($result);
@@ -25,6 +25,7 @@ $km_final=$resultados['km_final'];
 $rendimiento_real=$resultados['rendimiento_real'];
 $rendimiento_kilometro=$resultados['rendimiento_kilometro'];
 $factor=$resultados['factor']; 
+$porcentaje=$resultados['porcentaje'];
 
 //agregamos nuestros datos al array para retornarlos
 $jsondata['vehiculo1'] = $vehiculo1;
@@ -43,6 +44,7 @@ $jsondata['km_final'] = $km_final;
 $jsondata['rendimiento_real'] = $rendimiento_real;
 $jsondata['rendimiento_kilometro'] = $rendimiento_kilometro;
 $jsondata['factor'] = $factor;
+$jsondata['porcentaje'] = $porcentaje;
  
 //este header es para el retorno correcto de datos con json
  header('Content-type: application/json; charset=utf-8');
