@@ -1,11 +1,11 @@
 <?php
 $con=mysqli_connect("localhost","root","","controldeflotilla") or die (mysqli_error());
 //el dato que enviamos a traves de ajax
-$valor=$_POST['valor'];
+$ticket2=$_POST['ticket2'];
 //esta variable es para retornar los datos
 $jsondata = array();
 //la consulta que necesites para trer el codigo y el nombre del cliente
-$query="SELECT vehiculo,fecha_carga,hora_carga,ticket,factura,tipo,costo_total,litros,costo_litro,empresa,km_inicial,km_final,rendimiento_real,rendimiento_kilometro,factor,porcentaje from carga_combustible where id_carga=$valor";
+$query="SELECT vehiculo,fecha_carga,hora_carga,ticket,factura,tipo,costo_total,litros,costo_litro,empresa,km_inicial,km_final,rendimiento_real,rendimiento_kilometro,factor,porcentaje from carga_combustible where ticket=$ticket2";
 $result=mysqli_query($con, $query) or die (mysqli_error());
 
 $resultados= mysqli_fetch_array($result);

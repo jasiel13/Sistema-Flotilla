@@ -97,22 +97,16 @@ $con=mysqli_connect("localhost","root","","controldeflotilla") or die (mysqli_er
 <form class="container" id="frmcarga" method="POST">
   <div class="form-row">
 
-    <div class="form-group col-md-3 targetet" style="display:none">
-    <label for="" >Id de carga</label>
-      <select  name="id_carga" id="id_carga" class="form-control" onchange="mifuncion5(this.value)">
-        <option value="">Seleccione...</option>
-        <?php
-// Realizamos la consulta para extraer los datos
-            $query="SELECT  * FROM carga_combustible";
-            $result=mysqli_query($con, $query) or die (mysqli_error());
-            while ($row=mysqli_fetch_array($result)){ 
-// En esta sección estamos llenando el select con datos extraidos de una base de datos.
-            echo '<option value="'.$row['id_carga'].'">'.$row['id_carga'].'</option>';
-          }
-        ?>
-      </select>
-     <p id="ms16" style="display:none" class="error">Seleccione un id para modificar</p>
-   </div>
+  <div class="form-group col-md-3 targetet" style="display:none"> 
+  <label for="">Número de Ticket</label>
+  <div class="input-group mb-3">
+  <div class="input-group-prepend">
+  <button class="input-group-text btn btn-outline-success" type="button" onclick="buscar()"><i class="fa fa-search" style="color: #20c997;"></i></button>
+  </div>
+  <input type="text" class="form-control" name="ticket2" id="ticket2" placeholder="Búsqueda: 123">
+  </div>
+  <p id="ms16" style="display:none" class="error">Seleccione un ticket para modificar</p>
+  </div>
 
 
     <div class="form-group col-md-3">
@@ -494,7 +488,7 @@ if($("#ticket").val() == ""){
       $("#ms4").fadeOut();      
     }
 
-if($("#factura").val() == ""){
+/*if($("#factura").val() == ""){
         //alert("El campo Nombre no puede estar vacío.");
         $("#ms5").delay(100).fadeIn("slow");
         $("#factura").focus();// Esta función coloca el foco de escritura del usuario en el campo Nombre directamente.
@@ -503,7 +497,7 @@ if($("#factura").val() == ""){
     else
     {
       $("#ms5").fadeOut();      
-    }
+    }*/
 
 
 if($("#tipo1").val() == ""){
@@ -698,12 +692,13 @@ numero('ticket').addEventListener('input',function() {
 });
 
 
-function mifuncion5(valor){
+function buscar(){
+   var ticket2 = document.getElementById("ticket2").value; 
     $.ajax({ 
      // la URL para la petición    
       url : 'scripts/carga_valorescombus.php',
-     // la información a enviar en este caso el valor de lo que seleccionaste en el select     
-      data : { valor : valor },
+     // la información a enviar en este caso el valor de lo que seleccionaste en el select
+      data : { ticket2 : ticket2 },
      // especifica si será una petición POST o GET
       type : 'POST',
      // el tipo de información que se espera de respuesta
@@ -808,7 +803,7 @@ function mifuncion5(valor){
 
   //habilitar el boton editar por medio del select id_carga
 $( function() {
-    $("#id_carga").change( function() {
+    $("#ticket2").change( function() {
         if ($(this).val() === "0") {
             $("#ver").prop("disabled", true);
         } else {
@@ -819,10 +814,10 @@ $( function() {
 
  //MODIFICAR TABLA DE CARGA_COMBUSTIBLE
   function validaForm20(){
- if($("#id_carga").val() == ""){
+ if($("#ticket2").val() == ""){
         //alert("El campo Nombre no puede estar vacío.");
         $("#ms16").delay(100).fadeIn("slow");
-        $("#id_carga").focus();// Esta función coloca el foco de escritura del usuario en el campo Nombre directamente.
+        $("#ticket2").focus();// Esta función coloca el foco de escritura del usuario en el campo Nombre directamente.
         return false;
     }
     else
