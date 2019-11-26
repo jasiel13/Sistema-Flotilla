@@ -46,8 +46,7 @@
   <div class="form-row">
     <div class="form-group col-md-4">
       <label for="">Nombre</label>
-    <input type="text" class="form-control" name="nombre" id="nombre" placeholder="Ej: Ford lobo azul" 
-     oninput="validar(this)">
+    <input type="text" class="form-control" name="nombre" id="nombre" placeholder="Ej: Ford lobo azul"><!--oninput="validar(this)"-->
       <p id="ms" style="display:none" class="error">El campo nombre no puede estar vacío</p>
     </div>
     <div class="form-group col-md-4">
