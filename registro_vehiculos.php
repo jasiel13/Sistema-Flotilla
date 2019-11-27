@@ -94,7 +94,8 @@
         <option value="pickup">Pick up</option>
         <option value="tractor 5R">Tractor 5 rueda</option>
         <option value="camión torton">Camión torton</option>
-        <option value="camión 3 ton">Camión 3 toneladas</option>       
+        <option value="camión 3 ton">Camión 3 toneladas</option>
+        <option value="monta cargas">Monta Cargas</option>           
       </select>
       <p id="ms6" style="display:none" class="error">Seleccione una opción</p>
     </div>
@@ -114,6 +115,7 @@
         <option value="almacen">Almacen</option>
         <option value="sea">Usuarios de SEA</option>
         <option value="cta">Usuarios de CTA</option>
+        <option value="gerencia">Gerencia</option>
       </select>
       <p id="ms8" style="display:none" class="error">Seleccione una opción</p>
     </div>
