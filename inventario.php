@@ -139,6 +139,7 @@ Modificar/Eliminar
         <option value="almacen">Almacen</option>
         <option value="sea">Usuarios de SEA</option>
         <option value="cta">Usuarios de CTA</option>
+        <option value="gerencia">Gerencia</option>
       </select>
     <p id="ms6" style="display:none" class="fallo">El campo departamento no puede ir vacío</p> 
     </div>
