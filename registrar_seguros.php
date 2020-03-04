@@ -78,7 +78,7 @@ $con=mysqli_connect("localhost","root","","controldeflotilla") or die (mysqli_er
 
     <div class="form-group col-md-3">
     <label for="">No. Póliza</label>
-    <input type="text" class="form-control numerico" name="poliza" id="poliza" placeholder="Ej: 123">
+    <input type="text" class="form-control" name="poliza" id="poliza" placeholder="Ej: 123">
     <p id="ms3" style="display:none" class="error">El campo número de póliza no puede estar vacío</p>  
     </div>  
  
@@ -282,7 +282,7 @@ Modificar
 
     <div class="form-group col-md-6">
     <label for="">No. Póliza</label>
-    <input type="text" class="form-control numerico" name="poliza1" id="poliza1" placeholder="Ej: 123">
+    <input type="text" class="form-control" name="poliza1" id="poliza1" placeholder="Ej: 123">
     <p id="ns4" style="display:none" class="fallo">El campo número de póliza no puede estar vacío</p>  
     </div>  
   </div>  
@@ -296,7 +296,8 @@ Modificar
     </div>
     <input type="date" class="form-control" name="fecha_vencimiento1" id="fecha_vencimiento1">
     </div>
-<p id="ns5" style="display:none" class="fallo">El campo fecha vencimiento no puede estar vacío</p> </div> 
+<p id="ns5" style="display:none" class="fallo">El campo fecha vencimiento no puede estar vacío</p>
+ </div> 
  
    <div class="form-group col-md-6">
       <label for="">Monto Total</label>
@@ -363,21 +364,20 @@ Modificar
 
 <script type="text/javascript"> 
   function validaForm(){
-    if($("#vehiculo").val() == ""){
-        //alert("El campo Nombre no puede estar vacío.");
+    if($("#vehiculo").val() == ""){        
         $("#ms1").delay(100).fadeIn("slow");
-        $("#vehiculo").focus();// Esta función coloca el foco de escritura del usuario en el campo Nombre directamente.
+        $("#vehiculo").focus();
         return false;
     }
     else
     {
       $("#ms1").fadeOut();      
     }
-    // Campos de texto
+  
     if($("#aseguradora1").val() == ""){
-        //alert("El campo Nombre no puede estar vacío.");
+        
         $("#ms2").delay(100).fadeIn("slow");
-        $("#aseguradora1").focus();// Esta función coloca el foco de escritura del usuario en el campo Nombre directamente.
+        $("#aseguradora1").focus(); 
         return false;
     }
     else
@@ -405,7 +405,7 @@ Modificar
       $("#ms4").fadeOut();      
     }
 
-  if($("#monto_total").val() == ""){        
+  /*if($("#monto_total").val() == ""){        
         $("#ms5").delay(100).fadeIn("slow");
         $("#monto_total").focus();
         return false;
@@ -414,6 +414,7 @@ Modificar
     {
       $("#ms5").fadeOut();      
     }
+
   if($("#accidente").val() == ""){        
         $("#ms6").delay(100).fadeIn("slow");
         $("#accidente").focus();
@@ -431,7 +432,7 @@ Modificar
     else
     {
       $("#ms7").fadeOut();      
-    }  
+    }*/  
    
      return true; // Si todo está correcto
 }
@@ -541,7 +542,7 @@ Array.from(inputs).forEach(function(input) {
       $("#ns5").fadeOut();      
     }
 
-  if($("#monto_total1").val() == ""){        
+  /*if($("#monto_total1").val() == ""){        
         $("#ns6").delay(100).fadeIn("slow");
         $("#monto_total1").focus();
         return false;
@@ -567,8 +568,8 @@ Array.from(inputs).forEach(function(input) {
     else
     {
       $("#ns8").fadeOut();      
-    }   
-     return true; // Si todo está correcto
+    }*/   
+     return true;
 }
 
 // Esta parte del código se ejecutará automáticamente cuando la página esté lista.

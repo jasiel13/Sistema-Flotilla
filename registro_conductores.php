@@ -175,7 +175,7 @@ $con=mysqli_connect("localhost","root","","controldeflotilla") or die (mysqli_er
       $("#ms4").fadeOut();      
     }
 
-  if($("#vehiculo").val() == ""){        
+  /*if($("#vehiculo").val() == ""){        
         $("#ms5").delay(100).fadeIn("slow");
         $("#vehiculo").focus();
         return false;
@@ -183,7 +183,7 @@ $con=mysqli_connect("localhost","root","","controldeflotilla") or die (mysqli_er
     else
     {
       $("#ms5").fadeOut();      
-    }
+    }*/
      return true; // Si todo está correcto
 }
 
